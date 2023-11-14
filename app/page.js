@@ -28,14 +28,14 @@ const VerticalRunningText = ({ text }) => {
   }
 
   return (
-    <div className="overflow-hidden h-full"> {/* Container must have a fixed height */}
+    <div className="overflow-hidden h-full"> {/* Container must have a fixed height */ }
       <motion.div
         className="whitespace-nowrap"
-        {...textMotion}
+        { ...textMotion }
       >
-        {/* Map over the items array to render them */}
+        {/* Map over the items array to render them */ }
         <div className="flex flex-col items-center max-h-14">
-          {items.map((item) => item)}
+          { items.map((item) => item) }
         </div>
       </motion.div>
     </div>
@@ -82,8 +82,13 @@ const Page = () => {
         {/* intro start */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
           <p className="font-mono text-center">
-          This is the project I made for tech fair submissions. Anyway, I do build products and solve problems. Currently accepting friendships.
+            This is the project I made for tech fair submissions. Anyway, I do build products and solve problems. Currently accepting friendships.
           </p>
+          <div className="text-center mt-4">
+            <a href="https://www.instagram.com/tomithedream" target="_blank" rel="noopener noreferrer" className="text-f72e2a mx-2 underline hover:bg-custom-red hover:text-white">INSTAGRAM</a>
+            <a href="https://github.com/yaelahtom" target="_blank" rel="noopener noreferrer" className="text-f72e2a mx-2 underline hover:bg-custom-red hover:text-white">GITHUB</a>
+            <a href="mailto:amandipthandi@gmail.com" className="text-f72e2a mx-2 underline hover:bg-custom-red hover:text-white">EMAIL</a>
+          </div>
         </div>
         {/* intro tiktok */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
@@ -114,8 +119,8 @@ const Page = () => {
         </div>
         {/* download button */ }
         <div className="w-full flex justify-center p-4 mt-10">
-        <DownloadButton onDownload={handleSubmit} />
-      </div>
+          <DownloadButton onDownload={ handleSubmit } />
+        </div>
         {/* Download link */ }
         { downloadLink && (
           <div className="w-full flex justify-center p-4">
