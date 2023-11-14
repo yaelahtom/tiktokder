@@ -12,12 +12,12 @@ const VerticalRunningText = ({ text }) => {
     transition: {
       repeat: Infinity,  // Loop the animation
       repeatType: "loop",
-      duration: 5,     // Duration of one loop; adjust as needed for speed
+      duration: 7,     // Duration of one loop; adjust as needed for speed
       ease: "linear"    // Linear easing for a smooth continuous scroll
     }
   };
   const items = []; // Array to hold the text items
-  const numberOfItems = 10; // Adjust the number to fill the vertical space
+  const numberOfItems = 100; // Adjust the number to fill the vertical space
 
   // Fill the items array with multiple text elements
   for (let i = 0; i < numberOfItems; i++) {
@@ -84,13 +84,13 @@ const Page = () => {
         {/* intro start */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
           <p className="font-mono text-center">
-            Building products and Solving Problems. Currently accepting new friendships.
+          This is the project I made for tech fair submissions. Anyway, I do build products and solve problems. Currently accepting friendships.
           </p>
         </div>
         {/* intro tiktok */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
           <p className="font-mono text-center">
-            This TikTok Downloader might be useful for yall.
+            This TikTok Downloader might be useful for yall. All downloads are uncompressed and without watermarks.
           </p>
         </div>
         {/* running text */ }
@@ -107,7 +107,7 @@ const Page = () => {
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
           <input
             type="text"
-            placeholder="Enter TikTok link here"
+            placeholder="Enter TikTok link here."
             className="w-full font-mono text-center bg-transparent border-none outline-none"
             style={ { caretColor: '#f72e2a' } }
             value={ link }
