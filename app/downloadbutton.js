@@ -16,10 +16,11 @@ const DownloadButton = ({ onDownload }) => {
     }
   }, [status]);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     setStatus('processing');
-    onDownload(); // Trigger the download function passed as a prop
-  };
+    onDownload(e); // Pass the event object to the onDownload function
+};
+
 
   const downloadText = status === 'idle' ? 'DOWNLOAD' : status === 'processing' ? 'PROCESSING...' : 'DOWNLOADED ↓';
 
@@ -36,7 +37,7 @@ const DownloadButton = ({ onDownload }) => {
           ? 'hover:text-white hover:bg-custom-red'
           : 'bg-gray-300 text-gray-700 cursor-default'
       }`}
-      onClick={handleClick}
+      onClick={(e) => handleClick(e)}
       variants={downloadButtonVariant}
       animate={status}
       disabled={status !== 'idle'}
