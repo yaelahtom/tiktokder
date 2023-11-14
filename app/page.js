@@ -47,6 +47,8 @@ const Page = () => {
   const [link, setLink] = useState('');
   const [downloadLink, setDownloadLink] = useState('');
   const [error, setError] = useState('');
+  const [downloadStatus, setDownloadStatus] = useState('idle'); // idle, processing, downloaded, failed
+
 
   const fetchVideoData = async (videoUrl) => {
     try {
@@ -64,16 +66,24 @@ const Page = () => {
     event.preventDefault();
     setError('');
     setDownloadLink('');
+    setDownloadStatus('processing'); // Set status to processing when download starts
 
-    const videoData = await fetchVideoData(link);
-
-    // Make sure to access the nested properties correctly based on the logged structure
-    if (videoData && videoData.download && videoData.download.video && videoData.download.video.NoWMSource) {
-      setDownloadLink(videoData.download.video.NoWMSource.url); // Set the correct URL to state
-    } else {
-      setError('Error retrieving video data or video URL not found.');
+    try {
+      const videoData = await fetchVideoData(link);
+      if (videoData && videoData.download && videoData.download.video && videoData.download.video.NoWMSource) {
+        setDownloadLink(videoData.download.video.NoWMSource.url);
+        setDownloadStatus('downloaded'); // Set status to downloaded on success
+      } else {
+        setError('Error retrieving video data or video URL not found.');
+        setDownloadStatus('failed'); // Set status to failed if there's an error
+      }
+    } catch (error) {
+      console.error('Error fetching video data:', error);
+      setError('Failed to fetch video data.');
+      setDownloadStatus('failed'); // Set status to failed on exception
     }
   };
+
 
   return (
     <>
@@ -119,7 +129,7 @@ const Page = () => {
         </div>
         {/* download button */ }
         <div className="w-full flex justify-center p-4 mt-10">
-          <DownloadButton onDownload={ handleSubmit } />
+          <DownloadButton onDownload={ handleSubmit } status={ downloadStatus } />
         </div>
         {/* Download link */ }
         { downloadLink && (
@@ -128,8 +138,11 @@ const Page = () => {
               href={ downloadLink }
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-block px-6 py-2 bg-custom-red text-white font-mono rounded-full hover:bg-f72e2a transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-f72e2a"
+              title="Click to download your video"
             >
-              Direct Download Link
+              <span className="inline-block mr-2 font-mono">⬇️</span>
+              Download your video
             </a>
           </div>
         ) }
