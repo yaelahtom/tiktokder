@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import { motion } from 'framer-motion';
+import DownloadButton from './downloadbutton';
 
 const VerticalRunningText = ({ text }) => {
   // Define the animation properties
@@ -74,9 +75,6 @@ const Page = () => {
     }
   };
 
-
-
-
   return (
     <>
       <Header />
@@ -116,14 +114,8 @@ const Page = () => {
         </div>
         {/* download button */ }
         <div className="w-full flex justify-center p-4 mt-28">
-          <button
-            type="submit"
-            className="font-mono tracking-widest border-2 border-f72e2a text-f72e2a hover:text-white hover:bg-custom-red w-36 h-36 rounded-full flex items-center justify-center transition-colors duration-300 focus:outline-none"
-            style={ { marginBottom: 0, borderColor: '#f72e2a' } }
-          >
-            DOWNLOAD
-          </button>
-        </div>
+        <DownloadButton onDownload={handleSubmit} />
+      </div>
         {/* Download link */ }
         { downloadLink && (
           <div className="w-full flex justify-center p-4">
