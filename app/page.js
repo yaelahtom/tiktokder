@@ -5,37 +5,41 @@ import Header from './Header';
 import { motion } from 'framer-motion';
 
 const VerticalRunningText = ({ text }) => {
-  const textArray = Array(50).fill(text); // Create an array with a large number of text items
-
   // Define the animation properties
   const textMotion = {
-    initial: { y: '0%' }, // Start from just off-screen at the bottom
-    animate: { y: '-200%' }, // Move to twice the height of the container upwards
+    initial: { y: 0 },  // Start off-screen at the bottom
+    animate: { y: '-100vh' }, // End off-screen at the top
     transition: {
-      repeat: Infinity, // Loop the animation
+      repeat: Infinity,  // Loop the animation
       repeatType: "loop",
-      duration: 1, // Duration of one loop; adjust as needed for speed
-      ease: "linear", // Linear easing for a smooth continuous scroll
+      duration: 5,     // Duration of one loop; adjust as needed for speed
+      ease: "linear"    // Linear easing for a smooth continuous scroll
     }
   };
+  const items = []; // Array to hold the text items
+  const numberOfItems = 10; // Adjust the number to fill the vertical space
+
+  // Fill the items array with multiple text elements
+  for (let i = 0; i < numberOfItems; i++) {
+    items.push(
+      <span key={ i } className="text-5xl italic">{ text }</span>
+    );
+  }
 
   return (
-    <div className="overflow-hidden h-full relative"> {/* Container must have overflow hidden */}
+    <div className="overflow-hidden h-full"> {/* Container must have a fixed height */}
       <motion.div
-        className="absolute"
+        className="whitespace-nowrap"
         {...textMotion}
       >
-        {/* Render the array of text */}
-        {textArray.map((item, index) => (
-          <div key={index} className="text-5xl my-2">
-            {item}
-          </div>
-        ))}
+        {/* Map over the items array to render them */}
+        <div className="flex flex-col items-center max-h-14">
+          {items.map((item) => item)}
+        </div>
       </motion.div>
     </div>
   );
 };
-
 
 
 const Page = () => {
