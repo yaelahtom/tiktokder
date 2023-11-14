@@ -113,7 +113,7 @@ const Page = () => {
           />
         </div>
         {/* download button */ }
-        <div className="w-full flex justify-center p-4 mt-28">
+        <div className="w-full flex justify-center p-4 mt-10">
         <DownloadButton onDownload={handleSubmit} />
       </div>
         {/* Download link */ }
