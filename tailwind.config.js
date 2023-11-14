@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Space Mono', 'monospace'],
+      },
       colors: {
         'custom-red': '#f72e2a',
       },

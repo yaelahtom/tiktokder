@@ -91,7 +91,7 @@ const Page = () => {
       <form onSubmit={ handleSubmit } className='flex flex-col items-center w-full pt-4' style={ { color: '#f72e2a' } }>
         {/* intro start */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
-          <p className="font-mono text-center">
+          <p className=" text-center">
             This is the project I made for tech fair submissions. Anyway, I do build products and solve problems. Currently accepting friendships.
           </p>
           <div className="text-center mt-4">
@@ -102,7 +102,7 @@ const Page = () => {
         </div>
         {/* intro tiktok */ }
         <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
-          <p className="font-mono text-center">
+          <p className=" text-center">
             This TikTok Downloader might be useful for yall. All downloads are uncompressed and without watermarks.
           </p>
         </div>
@@ -121,7 +121,7 @@ const Page = () => {
           <input
             type="text"
             placeholder="Enter TikTok link here."
-            className="w-full font-mono text-center bg-transparent border-none outline-none"
+            className="w-full  text-center bg-transparent border-none outline-none"
             style={ { caretColor: '#f72e2a' } }
             value={ link }
             onChange={ (e) => setLink(e.target.value) }
@@ -138,10 +138,10 @@ const Page = () => {
               href={ downloadLink }
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-custom-red text-white font-mono rounded-full hover:bg-f72e2a transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-f72e2a"
+              className="inline-block px-6 py-2 bg-custom-red text-white  rounded-full hover:bg-f72e2a transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-f72e2a"
               title="Click to download your video"
             >
-              <span className="inline-block mr-2 font-mono">⬇️</span>
+              <span className="inline-block mr-2 ">⬇️</span>
               Download your video
             </a>
           </div>
