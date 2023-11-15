@@ -126,7 +126,7 @@ const Page = () => {
             value={ link }
             onChange={ (e) => setLink(e.target.value) }
           />
-          <button className='animate-spin hover:animate-ping' onDownload={ handleSubmit } status={ downloadStatus }>
+          <button className='animate-spin hover:animate-ping text-lg' onDownload={ handleSubmit } status={ downloadStatus }>
             {"->"}
           </button>
         </div>
