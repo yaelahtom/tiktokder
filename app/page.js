@@ -23,7 +23,7 @@ const VerticalRunningText = ({ text }) => {
   // Fill the items array with multiple text elements
   for (let i = 0; i < numberOfItems; i++) {
     items.push(
-      <span key={ i } className="text-5xl italic">{ text }</span>
+      <span key={ i } className="text-5xl">{ text }</span>
     );
   }
 
@@ -109,15 +109,15 @@ const Page = () => {
         {/* running text */ }
         <div className="flex w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
           <div className='flex-1 p-2' style={ { borderRight: '2px solid #f72e2a' } }>
-            <VerticalRunningText text="Tech" />
+            <VerticalRunningText text="TECH" />
           </div>
           <div className='flex-1 p-2'>
-            <VerticalRunningText text="Fair" />
+            <VerticalRunningText text="FAIR" />
           </div>
         </div>
 
         {/* enter the link */ }
-        <div className="w-full p-4 border-b-2" style={ { borderColor: '#f72e2a' } }>
+        <div className="w-full p-4 border-b-2 flex flex-row" style={ { borderColor: '#f72e2a' } }>
           <input
             type="text"
             placeholder="Enter TikTok link here."
@@ -126,6 +126,9 @@ const Page = () => {
             value={ link }
             onChange={ (e) => setLink(e.target.value) }
           />
+          <button className='animate-spin hover:animate-ping' onDownload={ handleSubmit } status={ downloadStatus }>
+            {"->"}
+          </button>
         </div>
         {/* download button */ }
         <div className="w-full flex justify-center p-4 mt-10">
@@ -138,10 +141,10 @@ const Page = () => {
               href={ downloadLink }
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-custom-red text-white  rounded-full hover:bg-f72e2a transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-f72e2a"
+              className="inline-block px-6 py-2 text-custom-red underline"
               title="Click to download your video"
             >
-              <span className="inline-block mr-2 ">⬇️</span>
+              {/* <span className="inline-block mr-2 ">⬇️</span> */}
               Download your video
             </a>
           </div>
@@ -153,3 +156,6 @@ const Page = () => {
 };
 
 export default Page;
+
+
+// bg-custom-red text-white  rounded-full hover:bg-f72e2a transition-colors duration-300 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-f72e2a

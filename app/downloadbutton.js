@@ -31,13 +31,12 @@ const DownloadButton = ({ onDownload, status }) => {
       disabled={status !== 'idle'}
     >
       {status === 'processing' && <WalkingDots />}
-      {status === 'downloaded' ? 'DOWNLOADED ↓' : status === 'processing' ? 'PROCESSING...' : status === 'failed' ? 'FAILED' : 'DOWNLOAD'}
+      {status === 'downloaded' ? 'DOWNLOADED ↓' : status === 'processing' ? 'PROCESSING...' : status === 'failed' ? 'FAILED' : ''}
     </motion.button>
   );
 };
 
 const WalkingDots = () => {
-  // Dot walking animation
   return (
     <AnimatePresence>
       <motion.span
