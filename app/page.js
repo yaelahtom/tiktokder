@@ -127,7 +127,7 @@ const Page = () => {
             onChange={ (e) => setLink(e.target.value) }
           />
           <button className='animate-spin hover:animate-ping text-lg' onDownload={ handleSubmit } status={ downloadStatus }>
-            {"->"}
+            {">"}
           </button>
         </div>
         {/* download button */ }
